@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartment Payment Portal</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Apartment Payment</h1>
+    <p class="subtitle">Teresa Pineda</p>
+
+    <div class="payment-box">
+
+      <h3>Choose Mode of Payment</h3>
+
+      <div class="radio-group">
+
+        <label>
+          <input 
+            type="radio" 
+            name="payment"
+            onclick="showPayment('cash')"
+          >
+          Cash
+        </label>
+
+        <label>
+          <input 
+            type="radio" 
+            name="payment"
+            onclick="showPayment('gcash')"
+          >
+          GCash
+        </label>
+
+      </div>
+
+      <!-- CASH INFO -->
+      <div id="cashInfo" class="info-box hidden">
+
+        <p class="title-text">
+          Cash Payment
+        </p>
+
+        <p>
+          Please text this number:
+        </p>
+
+        <p class="number">
+          +1 (340) XXX-XXXX
+        </p>
+
+        <div class="details">
+
+          <p>Name: __________________</p>
+
+          <p>Date: __________________</p>
+
+          <p>Apartment Number: __________________</p>
+
+          <p>Amount to Pay: __________________</p>
+
+        </div>
+
+      </div>
+
+      <!-- GCASH INFO -->
+      <div id="gcashInfo" class="info-box hidden">
+
+        <p class="title-text">
+          GCash Payment
+        </p>
+
+        
+
+        <p class="note-text">
+          Before sending payment, please include the following in the note:
+        </p>
+
+        <div class="details">
+
+          <p>Name: __________________</p>
+
+          <p>Date: __________________</p>
+
+          <p>Apartment Number: __________________</p>
+
+          <p>Amount to Pay: __________________</p>
+
+          <p>
+          Send payment to:
+        </p>
+
+        <p class="number">
+          Dave Pineda
+        </p>
+
+        <p class="number">
+          09XX-XXX-XXXX
+        </p>
+        </div>
+
+        <img 
+          src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=GCASHPAYMENT"
+          alt="GCash QR"
+          class="qr"
+        >
+        <p class="receipt-note">
+  After payment, please wait 1-2 business days to receive your apartment receipt.
+</p>
+      </div>
+
+    </div>
+
+  </div>
+
+<script>
+
+function showPayment(method){
+
+  document.getElementById("cashInfo").classList.add("hidden");
+  document.getElementById("gcashInfo").classList.add("hidden");
+
+  if(method === "cash"){
+    document.getElementById("cashInfo").classList.remove("hidden");
+  }
+
+  if(method === "gcash"){
+    document.getElementById("gcashInfo").classList.remove("hidden");
+  }
+
+}
+
+</script>
+
+</body>
+</html>
